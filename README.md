@@ -48,7 +48,7 @@ Your app has to be a working app, with the capabilities as listed below:
 ### Likes
 1. User is able to (C) CREATE a LIKE on friend's status
 2. User is able to (R) VIEW how many LIKES on friend's statuses
-3. User is able to (Update/ Delete * your choice) UN-LIKE their friend's statuses if user changed his/her mind
+3. User is able to UN-LIKE their friend's statuses if user changed his/her mind
 
 
 ### Facebook Friend
