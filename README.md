@@ -53,8 +53,7 @@ Your app has to be a working app, with the capabilities as listed below:
 
 ### Facebook Friend
 1. User is able to add other users as friends
-2. User can see how many facebook friends other users have
-3. User can see how many facebook friends your friend has
+2. User can see how many facebook friends your friend has
 
 
 # Good Luck!
