@@ -17,7 +17,6 @@ This is a question repo for testing your web server understanding related to Rub
 6. Demo your app and walk the mentor through your code to show an understanding of the concepts.
 
 # Tips
-It is advisable to:
 1. Not spend too much time beautifying the app at the moment; focus on delivering a functional app within the given timeframe.
 2. Work on app requirements from top to bottom, as the difficulty increases in top-down design.
 
