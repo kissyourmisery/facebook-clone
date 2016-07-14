@@ -6,7 +6,7 @@ This is a question repo for testing your web server understanding related to Rub
 5.5 hours. Cut off time is 4pm. *Of course you can order delivery/get someone to takeaway lunch to earn extra hour...
 
 # What You Will Need to Do
-1. First, fork this repository and `git clone` it to your local machine.
+1. First, `fork this repository` and `git clone` it to your local machine.
 2. Wireframe and design your database structure.
 3. Start coding!
 4. Commit your code as often as possible into your own forked repository.
