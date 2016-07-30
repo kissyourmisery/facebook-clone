@@ -1,0 +1,14 @@
+<form action="/users" method="post">
+	<input type="text" placeholder="Your Name" name="user[name]"> 
+	<br>
+	<input type="text" placeholder="Your Email" name="user[email]">
+	<br>
+	<input type="text" placeholder="Choose your Password" name="user[password]">
+	<br>
+	<input type="text" placeholder="Confirm your Password" name="user[password_confirmation]">
+	<input class="submit" type="submit" value="Register">
+</form>
+
+<% if @error %>
+	<%= error %>
+<% end %>

@@ -1,0 +1,25 @@
+<h1><%= @status.status_text %></h1>
+
+<h2>Likes: <%= @status.count_likes%></h2>
+
+
+
+<%if logged_in?%>
+
+	<% if Like.find_by(user_id: current_user.id, status_id: @status.id) ==nil %>
+		<form method='post' action="/<%=@status.id%>/liked">
+			<input type="submit" value="Like">
+		</form>
+
+
+	<%else%>
+		<form method='post' action="/<%=@status.id%>/unliked">
+			<input type="submit" value="Unlike">
+		</form>
+	<%end%>
+
+
+<%end%>
+
+	<!-- <form method="post" action="/statuses/<%= @status.id %>"> -->
+

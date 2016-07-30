@@ -1,0 +1,28 @@
+<h2><%=@user.name%>'s Page</h2>
+
+<% if current_user == @user %>
+
+	<h4><form method="get" action="/users/<%= @user.id %>/edit">
+					<input type="submit" value="Update your particulars!">
+				</form></h4>
+
+	<h4><form method="get" action="/statuses/new">
+					<input type="submit" value="Post a new status!">
+				</form></h4>
+
+<%end%>
+
+
+<h2>Status Archive:</h2>
+<ul>
+	<% @user.statuses.all.each do |status| %>
+		<li><a href="/statuses/<%= status.id %>"><%= status.status_text %></a>
+			<% if current_user == @user %> 
+				<a href="/statuses/<%= status.id %>/edit">Edit</a> 
+				<a href="/statuses/<%= status.id %>/delete">Delete</a>
+			<%end%>
+		</li>
+	<% end %>
+</ul>
+
+

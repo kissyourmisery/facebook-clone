@@ -1,0 +1,13 @@
+<% if logged_in? %>
+
+	<h1>Edit Status</h1>
+
+	<form method="post" action="/statuses/<%= @status.id %>">
+		<input type="hidden" name="_method" value="put">
+		<input type="text" name="status[status_text]" value="<%= @status.status_text %>">
+		<input type="submit" value="Edit status!">
+	</form>
+
+
+
+<% end %>

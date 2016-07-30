@@ -1,9 +1,44 @@
 <html>
 	<head>
 		<title>Facebook Clone</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/application.css">
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src='/js/application.js' ></script>
 	</head>
 	<body>
 
+		<div id="navbar">
+			<div>
+				<a href="/"><h1>Facemask</h1></a>
+			</div>
+		</div>
+
+		<% if logged_in? %>
+			<h2>Welcome <a href="/users/<%= current_user.id %>"><%=current_user.name%></a></h2>
+
+		<% end %>
+
 		<%= yield %>
+
+
+
+		<% if logged_in? %>
+
+
+			<form method="post" action="/sessions/reset">
+				<input type="submit" value="Log out">
+			</form>
+
+		<% elsif !logged_in? && @page!='login' && @page!='register' %>
+			<h4><form method="get" action="/users/new">
+					<input type="submit" value="Register">
+			</form></h4>
+
+			<h4><form method="get" action="/sessions/new">
+				<input type="submit" value="Login">
+			</form></h4>
+		<% end %>
+
 	</body>
 </html>

@@ -1,0 +1,13 @@
+<% if logged_in? %>
+
+	<h1>Delete the status</h1>
+	<h2>status: <%= @status.status_text %></h2>
+
+
+	<form method="post" action="/statuses/<%= @status.id %>">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete status">
+	</form>
+
+
+<% end %>

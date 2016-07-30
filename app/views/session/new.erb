@@ -1,0 +1,13 @@
+
+<form method='post' action='/sessions/new'>
+	<input type=text placeholder="Email" name="user[email]">
+	<br>
+	<input type=password placeholder="Password" name="user[password]">
+	<br>
+	<input class="submit" type=submit value="Login">
+</form>
+
+
+<% if @error %>
+	<%= @error %>
+<% end %>
