@@ -1,43 +1,46 @@
-<h1>Hello World</h1>
+<h1>Hello hello!!</h1>
 
-<form method="post" action="/statuses">
-	<input type=text placeholder="Post a status!" name="status">
-	<input type="submit" value="submit">
-</form>
+<%if logged_in?%>
 
-<h2>What I have been feeling: </h2>
+	<form method="post" action="/statuses">
+		<input type=text placeholder="Post a status!" name="status">
+		<input type="submit" value="submit">
+	</form>
 
-<h2><%=current_user.statuses.last.status_text%></h2>
+	<h2>What I have been feeling: </h2>
 
-<h3>What my friends are feeling: </h3>
-<ul>
-	<%current_user.added_friends.each do |f|%>
-		<%Status.all.each do |s|%> 
-			<%if s.user_id == f.id%>
-				<li><a href="/users/<%=f.id%>"><%= f.name %></a>: <a href="/statuses/<%=s.id%>"><%=s.status_text%></a></li>
+	<h2><%=current_user.statuses.last.status_text%></h2>
+
+	<h3>What my friends are feeling: </h3>
+	<ul>
+		<%current_user.added_friends.each do |f|%>
+			<%Status.all.each do |s|%> 
+				<%if s.user_id == f.id%>
+					<li><a href="/users/<%=f.id%>"><%= f.name %></a>: <a href="/statuses/<%=s.id%>"><%=s.status_text%></a></li>
+				<%end%>
 			<%end%>
 		<%end%>
-	<%end%>
-</ul>
+	</ul>
 
 
-<h4>My friends:</h4>
-<ul>
-	<%current_user.added_friends.each do |f|%>
-		<li><a href="/users/<%=f.id%>"><%= f.name %></a>
-	<%end%></li>
-</ul>
+	<h4>My friends:</h4>
+	<ul>
+		<%current_user.added_friends.each do |f|%>
+			<li><a href="/users/<%=f.id%>"><%= f.name %></a>
+		<%end%></li>
+	</ul>
 
 
-<h4>Suggested friends:</h4>
-<ul>
-	<%current_user.non_friends.each do |n|%>
-		<%if n != current_user%>
-			<li><a href="/users/<%=n.id%>"><%= n.name %></a>
-			<form method="post" action="/friendships">
-				<input type="hidden" name="friend_id" value="<%= n.id%>">
-				<input type="submit" value="Add friend">
-			</form></li>
+	<h4>Suggested friends:</h4>
+	<ul>
+		<%current_user.non_friends.each do |n|%>
+			<%if n != current_user%>
+				<li><a href="/users/<%=n.id%>"><%= n.name %></a>
+				<form method="post" action="/friendships">
+					<input type="hidden" name="friend_id" value="<%= n.id%>">
+					<input type="submit" value="Add friend">
+				</form></li>
+			<%end%>
 		<%end%>
-	<%end%>
-</ul>
+	</ul>
+<%end%>
