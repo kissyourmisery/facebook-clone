@@ -14,7 +14,7 @@
 
 	<%end%>
 
-	<%if current_user.added_friends.include?(@user)%>
+	<%if current_user.added_friends.include?(@user) || current_user%>
 
 		<h2>Status Archive:</h2>
 		<ul>
