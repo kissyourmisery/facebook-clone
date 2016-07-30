@@ -7,9 +7,10 @@
 		<input type="submit" value="submit">
 	</form>
 
-	<h2>What I have been feeling: </h2>
-
-	<h2><%=current_user.statuses.last.status_text%></h2>
+	<%if current_user.statuses.all.count !=0%>
+		<h2>What I have been feeling: </h2>
+		<h2><%=current_user.statuses.last.status_text%></h2>
+	<%end%>
 
 	<h3>What my friends are feeling: </h3>
 	<ul>
