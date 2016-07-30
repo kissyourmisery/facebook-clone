@@ -6,17 +6,19 @@
 </form>
 
 My friends: 
+<br>
 <%current_user.added_friends.each do |f|%>
-	<%= f.name %>
+	<a href="/users/<%=f.id%>"><%= f.name %></a>
 <%end%>
 
 <br>
 <br>
 
 Suggested friends: 
+<br>
 <%current_user.non_friends.each do |n|%>
 	<%if n != current_user%>
-		<%= n.name%>
+		<a href="/users/<%=n.id%>"><%= n.name %></a>
 		<form method="post" action="/friendships">
 			<input type="hidden" name="friend_id" value="<%= n.id%>">
 			<input type="submit" value="Add friend">
@@ -24,4 +26,3 @@ Suggested friends:
 	<%end%>
 
 <%end%>
-
