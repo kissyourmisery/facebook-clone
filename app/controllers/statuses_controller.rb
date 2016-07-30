@@ -9,7 +9,7 @@ end
 
 post '/statuses' do 
 	status = Status.create(status_text: params[:status], user_id: current_user.id)
-	redirect "/statuses/" + status.id.to_s 
+	redirect "/" 
 end
 
 get '/statuses/:id/edit' do

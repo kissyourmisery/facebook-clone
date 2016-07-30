@@ -5,24 +5,39 @@
 	<input type="submit" value="submit">
 </form>
 
-My friends: 
-<br>
-<%current_user.added_friends.each do |f|%>
-	<a href="/users/<%=f.id%>"><%= f.name %></a>
-<%end%>
+<h2>What I have been feeling: </h2>
 
-<br>
-<br>
+<h2><%=current_user.statuses.last.status_text%></h2>
 
-Suggested friends: 
-<br>
-<%current_user.non_friends.each do |n|%>
-	<%if n != current_user%>
-		<a href="/users/<%=n.id%>"><%= n.name %></a>
-		<form method="post" action="/friendships">
-			<input type="hidden" name="friend_id" value="<%= n.id%>">
-			<input type="submit" value="Add friend">
-		</form>
+<h3>What my friends are feeling: </h3>
+<ul>
+	<%current_user.added_friends.each do |f|%>
+		<%Status.all.each do |s|%> 
+			<%if s.user_id == f.id%>
+				<li><a href="/users/<%=f.id%>"><%= f.name %></a>: <a href="/statuses/<%=s.id%>"><%=s.status_text%></a></li>
+			<%end%>
+		<%end%>
 	<%end%>
+</ul>
 
-<%end%>
+
+<h4>My friends:</h4>
+<ul>
+	<%current_user.added_friends.each do |f|%>
+		<li><a href="/users/<%=f.id%>"><%= f.name %></a>
+	<%end%></li>
+</ul>
+
+
+<h4>Suggested friends:</h4>
+<ul>
+	<%current_user.non_friends.each do |n|%>
+		<%if n != current_user%>
+			<li><a href="/users/<%=n.id%>"><%= n.name %></a>
+			<form method="post" action="/friendships">
+				<input type="hidden" name="friend_id" value="<%= n.id%>">
+				<input type="submit" value="Add friend">
+			</form></li>
+		<%end%>
+	<%end%>
+</ul>
